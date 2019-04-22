@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<% include ../partials/head %>
+</head>
+
+<body class="container">
+
+	<header>
+		<% include ../partials/header %>
+	</header>
+
+	<main>
+		<form method="POST" action="/save">
+			<div class="form-group">
+				<label for="name">Student Name</label>
+				<input type="text" class="form-control" id="name" name="name">
+			</div>
+			
+			<div class="form-group">
+				<label for="date-of-birth">Date Of Birth</label>
+				<input type="text" class="form-control" id="date-of-birth" name="dob">
+			</div>
+			
+			<div class="form-group">
+				<label for="grad-year">Graduation Year</label>
+				<input type="text" class="form-control" id="grad-year" name="gradYear">
+			</div>
+
+			<div class="form-group">
+				<label for="degree">Degree</label>
+				<input type="text" class="form-control" id="degree" name="degree">
+			</div>
+
+			<div class="form-group">
+				<label for="major">Major</label>
+				<input type="text" class="form-control" id="major" name="major">
+			</div>
+
+			<div class="form-group">
+				<label for="reg-no">Registed Number</label>
+				<input type="text" class="form-control" id="reg-no" name="regNo">
+			</div>
+
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</main>
+
+	<footer>
+		<% include ../partials/footer %>
+	</footer>
+
+</body>
+
+</html>
