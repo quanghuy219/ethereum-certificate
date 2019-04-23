@@ -6,15 +6,6 @@ const web3 = new Web3('/Users/huypham/huyph/gr1/testnet/node1/geth.ipc', net, {}
 const senderAddr = "0x87f8efb7d61ae2d8550079aca2d530c38092c713";
 const recipientAddr = "0x4150f19681849abec4905f477e45044832ea2cc1";
 
-const certificate = {
-    name: "Huy",
-    dob: "21-9-1997",
-    grad_year: "2020",
-    degree: "Engineer",
-    reg_no: "KS2020/0106",
-    major: "IT"
-}
-
 let convertObjectToHex = (obj) => {
     const str = JSON.stringify(obj)
     return Buffer.from(str).toString('hex')

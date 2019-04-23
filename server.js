@@ -1,6 +1,7 @@
-var express = require('express');
-var ethereum = require('./ethereum');
-var app = express();
+const express = require('express');
+const ethereum = require('./ethereum');
+const db = require('./db');
+const app = express();
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
@@ -14,9 +15,16 @@ app.get('/', (req, res) => {
 app.post('/save', (req, res, next) => {
     ethereum.storeData(req.body)
         .then(txHash => {
-            console.log(txHash)
-            console.log(req.body)
-            return res.render('pages/save');
+            certificate = req.body
+            db.Transaction.create({
+                studentID: certificate.studentID,
+                txhash: txHash
+            }).then(result => {
+                return res.render('pages/save', {certificate, txHash, transaction: result.dataValues});
+            })
+        })
+        .catch(err => {
+            console.log(err)
         })
 })
 

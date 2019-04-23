@@ -5,16 +5,46 @@
 	<% include ../partials/head %>
 </head>
 
-<body class="container">
+<body class="container-fluid">
 
 	<header>
 		<% include ../partials/header %>
 	</header>
 
 	<main>
-		
-		
+		<div class="container-fluid">
 
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Created Time</th>
+						<th scope="col">TxHash</th>
+						<th scope="col">Name</th>
+						<th scope="col">Student ID</th>
+						<th scope="col">DOB</th>
+						<th scope="col">Graduation Year</th>
+						<th scope="col">Degree</th>
+						<th scope="col">Major</th>
+						<th scope="col">Register Number</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">1</th>
+						<td><%= transaction.createdAt.toUTCString() %></td>
+						<td class="txhash"><%= txHash %></td>
+						<td><%= certificate.name %></td>
+						<td><%= certificate.studentID %></td>
+						<td><%= certificate.dob %></td>
+						<td><%= certificate.gradYear %></td>
+						<td><%= certificate.degree %></td>
+						<td><%= certificate.major %></td>
+						<td><%= certificate.regNo %></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</main>
 
 	<footer>
