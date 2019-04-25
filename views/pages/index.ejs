@@ -12,6 +12,19 @@
 	</header>
 
 	<main>
+		<div class="search">
+			<h2>Find certificate</h2>
+			<form method="POST" action="/search">
+				<div class="form-group">
+					<label for="studentID">Student ID</label>
+					<input type="text" class="form-control" id="studentID" name="studentID"
+						placeholder="Enter student ID">
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+
+		<h2>Insert new degree to blockchain</h2>
 		<form method="POST" action="/save">
 			<div class="form-group">
 				<label for="name">Student Name</label>
@@ -22,12 +35,12 @@
 				<label for="studentID">Student ID</label>
 				<input type="text" class="form-control" id="studentID" name="studentID">
 			</div>
-			
+
 			<div class="form-group">
 				<label for="date-of-birth">Date Of Birth</label>
 				<input type="text" class="form-control" id="date-of-birth" name="dob">
 			</div>
-			
+
 			<div class="form-group">
 				<label for="grad-year">Graduation Year</label>
 				<input type="text" class="form-control" id="grad-year" name="gradYear">

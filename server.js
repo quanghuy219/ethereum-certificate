@@ -20,12 +20,41 @@ app.post('/save', (req, res, next) => {
                 studentID: certificate.studentID,
                 txhash: txHash
             }).then(result => {
-                return res.render('pages/save', {certificate, txHash, transaction: result.dataValues});
+                certificates = [{
+                    ...certificate,
+                    createdAt: result.dataValues.createdAt,
+                    txhash: result.dataValues.txhash
+                }]
+                return res.render('pages/result', { certificates });
             })
         })
         .catch(err => {
             console.log(err)
         })
+})
+
+app.post('/search', (req, res, next) => {
+    db.Transaction.findAll({
+        where: {
+            studentID: req.body.studentID
+        }
+    })
+    .then(transactions => {
+        return Promise.all(transactions.map(tx => {
+            const txhash = tx.dataValues.txhash
+            return ethereum.retrivedata(txhash)
+                .then(data => {
+                    return {
+                        ...data,
+                        txhash: tx.txhash,
+                        createdAt: tx.createdAt
+                    }
+                })
+        }))
+    })
+    .then(certificates => {
+        return res.render('pages/result', { certificates });
+    })
 })
 
 app.listen(8080);

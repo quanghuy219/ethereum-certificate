@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<% include ../partials/head %>
+</head>
+
+<body class="container-fluid">
+
+	<header>
+		<% include ../partials/header %>
+	</header>
+
+	<main>
+		<div class="container-fluid">
+
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th class="header" scope="col">#</th>
+						<th class="header" scope="col">Created Time</th>
+						<th class="header" scope="col">TxHash</th>
+						<th class="header" scope="col">Name</th>
+						<th class="header" scope="col">Student ID</th>
+						<th class="header" scope="col">DOB</th>
+						<th class="header" scope="col">Graduation Year</th>
+						<th class="header" scope="col">Degree</th>
+						<th class="header" scope="col">Major</th>
+						<th class="header" scope="col">Register Number</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% certificates.map((certificate, index) => { %>
+					<tr>
+						<th scope="row"><% index + 1 %></th>
+						<td><%= certificate.createdAt.toUTCString() %></td>
+						<td class="txhash"><%= certificate.txhash %></td>
+						<td><%= certificate.name %></td>
+						<td><%= certificate.studentID %></td>
+						<td><%= certificate.dob %></td>
+						<td><%= certificate.gradYear %></td>
+						<td><%= certificate.degree %></td>
+						<td><%= certificate.major %></td>
+						<td><%= certificate.regNo %></td>
+					</tr>
+					<% }) %>
+				</tbody>
+			</table>
+		</div>
+	</main>
+
+	<footer>
+		<% include ../partials/footer %>
+	</footer>
+
+</body>
+
+</html>
